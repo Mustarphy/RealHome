@@ -1,17 +1,21 @@
+import { useContext } from "react";
 import SearchBar from "../../components/searchBar/SearchBar";
 import "./homePage.scss";
+import { AuthContext } from "../../context/AuthContext";
 
 function HomePage() {
+
+  const {currentUser} = useContext(AuthContext);
+  console.log(currentUser)
   return (
     <div className="homePage">
       <div className="textContainer">
         <div className="wrapper">
           <h1 className="title">Find Real Estate & Get Your Dream Place</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-            explicabo suscipit cum eius, iure est nulla animi consequatur
-            facilis id pariatur fugit quos laudantium temporibus dolor ea
-            repellat provident impedit!
+            A simple, modern platform where:
+            Agent can list peoperties for sales or lease. Buyer can easily search for homes.
+            It manage file uploads while preventing server bloat.
           </p>
           <SearchBar />
           <div className="boxes">
