@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const apiRequest = axios.create({
-    baseURL: 'https://kingshomeapi-1.onrender.com',
+    baseURL: 'https://kingshomeapi-2.onrender.com',
     withCredentials: true,
 });
 
