@@ -2,7 +2,7 @@
 
 .homePage {
   display: flex;
-  height: 100%;
+  flex-wrap: wrap;
 
   .textContainer {
     flex: 3;
@@ -12,8 +12,9 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 50px;
+      gap: 40px;
       height: 100%;
+      overflow-y: auto;
 
       @include lg{
         padding-right: 50px;
@@ -25,9 +26,11 @@
 
       @include sm{
         justify-content: flex-start;
+        padding: 10px;
       }
 
       .title {
+        margin-top: 10px;
         font-size: 64px;
 
         @include lg {
@@ -35,12 +38,104 @@
         }
       }
 
+      p {
+        font-size: 10px;
+
+        @include lg {
+          font-size: 15px;
+        }
+      }
+
+      .testimonial-section {
+        text-align: center;
+      
+        h2 {
+          font-size: 32px;
+          margin-bottom: 40px;
+          text-align: left;
+        }
+      
+        .testimonial-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 400px);
+          gap: 2rem;
+          margin: 0 auto;
+        
+          @include md {
+            grid-template-columns: 1fr;
+          }
+        
+          @include sm {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+          }
+        }
+        
+      
+        .testimonial-card {
+          align-content: flex-start;
+          background: #fece51;
+          color: #000000;
+          padding: 20px;
+          border: 2px solid transparent;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+          text-align: left;
+          width: 100%;
+      
+          &:hover {
+            border-color: #fece51;
+            background-color: #000000;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+          }
+      
+          .quote {
+            font-style: italic;
+            margin-bottom: 20px;
+          }
+      
+          .user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+      
+            img {
+              width: 48px;
+              height: 48px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+      
+            .info {
+              display: flex;
+              flex-direction: column;
+              strong {
+                font-size: 16px;
+              }
+              span {
+                font-size: 14px;
+                color: gray;
+              }
+              &:hover{
+                color: gray;
+              }
+            }
+          }
+        }
+      }
+      
+
+
       .boxes {
         display: flex;
         justify-content: space-between;
 
         @include sm {
-          display: none;
+          flex-direction: column;
+          padding-top: 10rem;
+          // display: none;
         }
 
         h1 {

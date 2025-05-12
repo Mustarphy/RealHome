@@ -1,10 +1,10 @@
 import "./layout.scss";
-import Navbar from "../../components/navbar/Navbar"
+import Navbar from "../../components/navbar/Navbar";
 import { Navigate, Outlet } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 
-
+// Public layout (shared by everyone on general routes like Home, Login, etc.)
 function Layout() {
   return (
     <div className="layout">
@@ -12,27 +12,54 @@ function Layout() {
         <Navbar />
       </div>
       <div className="content">
-        <Outlet/>
+        <Outlet />
       </div>
     </div>
   );
 }
 
-function RequireAuth() {
+// Role-based route guard
+function RequireAuth({ role, children }) {
   const { currentUser } = useContext(AuthContext);
 
-  return !currentUser ?  (
-  <Navigate to="/login"/> 
-    ) : (
-    <div className="layout">
+  if (!currentUser) {
+    return <Navigate to="/login" />;
+  }
+
+  // If role is required and doesn't match current user, redirect
+  if (role && currentUser.role !== role) {
+    return <Navigate to="/" />;
+  }
+
+  return children;
+}
+
+// Layout for normal users
+function UserLayout() {
+  return (
+    <div className="layout user-layout">
       <div className="navbar">
         <Navbar />
       </div>
       <div className="content">
-        <Outlet/>
+        <Outlet />
       </div>
     </div>
   );
 }
 
-export {Layout, RequireAuth};
+// Layout for tenants
+function TenantLayout() {
+  return (
+    <div className="layout tenant-layout">
+      <div className="navbar">
+        <Navbar tenant />
+      </div>
+      <div className="content">
+        <Outlet />
+      </div>
+    </div>
+  );
+}
+
+export { Layout, RequireAuth, UserLayout, TenantLayout };

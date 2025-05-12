@@ -1,0 +1,70 @@
+// .testimonial-section {
+//     text-align: center;
+  
+//     h2 {
+//       font-size: 32px;
+//       margin-bottom: 40px;
+//       text-align: left;
+//     }
+  
+//     .testimonial-grid {
+//       display: grid;
+//       grid-template-columns: repeat(2, 400px); // 2 columns of fixed width
+//       align-content: flex-start;
+//       align-items: flex-start;
+//       gap: 2rem;
+//     // max-width: 80%;
+//     margin: 0 auto;
+//     }
+  
+//     .testimonial-card {
+//       align-content: flex-start;
+//       background: #000000;
+//       color: #ffffff;
+//       padding: 20px;
+//       border: 2px solid transparent;
+//       border-radius: 8px;
+//       transition: all 0.3s ease;
+//       text-align: left;
+//       width: 80%;
+  
+//       &:hover {
+//         border-color: #ffa500;
+//         background-color: #ffffff;
+//         color: #000000;
+//         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+//         transform: translateY(-4px);
+//       }
+  
+//       .quote {
+//         font-style: italic;
+//         margin-bottom: 20px;
+//       }
+  
+//       .user {
+//         display: flex;
+//         align-items: center;
+//         gap: 12px;
+  
+//         img {
+//           width: 48px;
+//           height: 48px;
+//           border-radius: 50%;
+//           object-fit: cover;
+//         }
+  
+//         .info {
+//           display: flex;
+//           flex-direction: column;
+//           strong {
+//             font-size: 16px;
+//           }
+//           span {
+//             font-size: 14px;
+//             color: gray;
+//           }
+//         }
+//       }
+//     }
+//   }
+  

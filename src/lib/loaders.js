@@ -1,24 +1,37 @@
 import { defer } from "react-router-dom";
-import apiRequest from "./apiRequest"
+import apiRequest from "./apiRequest";
 
-export const singlePageLoader = async ({request, params}) => {
-const res = await apiRequest("/posts/" + params.id)
-return res.data;
-}
+// For single post details
+export const singlePageLoader = async ({ request, params }) => {
+  const res = await apiRequest("/posts/" + params.id);
+  return res.data;
+};
 
-export const listPageLoader = async ({request}) => {
-    const query = request.url.split("?")[1];
-    const postPromise =  apiRequest("/posts?" + query);
+// For list page with optional query filters
+export const listPageLoader = async ({ request }) => {
+  const query = request.url.split("?")[1]; // gets query string
+  const postPromise = apiRequest("/posts?" + query);
+
+  return defer({
+    postResponse: postPromise,
+  });
+};
+
+// ✅ Profile page loader with userId passed to backend routes
+export const profilePageLoader = async () => {
+  try {
+    const postPromise = apiRequest("/users/profilePosts");  
+    const chatPromise = apiRequest("/chats");
+
     return defer({
-        postResponse:postPromise,
+      postResponse: postPromise,
+      chatResponse: chatPromise,
     });
-    };
-
-    export const profilePageLoader = async () => {
-        const postPromise =  apiRequest("/users/profilePosts" );
-        const chatPromise =  apiRequest("/chats" );
-        return defer({
-            postResponse: postPromise,
-            chatResponse: chatPromise,
-        });
-        };
+  } catch (err) {
+    console.error("Loader error:", err);
+    return defer({
+      postResponse: Promise.reject("User not logged in"),
+      chatResponse: Promise.reject("User not logged in"),
+    });
+  }
+};

@@ -1,0 +1,82 @@
+.contact-page {
+    background: url('/footer1.jpg') no-repeat center center;
+    background-size: cover;
+    font-family: 'Segoe UI', sans-serif;
+    height: auto;
+    padding: 3rem 2rem;
+    position: relative;
+    color: #fff;
+    border-color:rgba(255, 255, 255, 0.911);
+  
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.699);
+      width: 100%;
+      min-height: 100%;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2rem;
+  
+      .footer-section {
+        flex: 1;
+        min-width: 200px;
+  
+        h2, h3 {
+          font-size: 1.4rem;
+          margin-bottom: 1rem;
+          color: #fff;
+        }
+  
+        p, li, a {
+          font-size: 0.95rem;
+          line-height: 1.6;
+          color: #ddd;
+        }
+  
+        ul {
+          list-style: none;
+          padding: 0;
+  
+          li {
+            margin-bottom: 0.5rem;
+  
+            a {
+              color: #ccc;
+              text-decoration: none;
+  
+              &:hover {
+                text-decoration: underline;
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #bbb;
+    }
+  
+    @media (max-width: 768px) {
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+  
+        .footer-section {
+          align-items: center;
+        }
+      }
+    }
+  }
+  

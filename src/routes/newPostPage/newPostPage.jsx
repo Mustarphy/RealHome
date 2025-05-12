@@ -49,6 +49,11 @@ function NewPostPage() {
       console.log(err);
       setError(error);
     }
+
+    if (!value.trim()) {
+      setError("Description is required.");
+      return;
+    }
     
   };
 
