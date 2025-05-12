@@ -15,8 +15,8 @@ const AboutUs = () => {
           <section className="history-section">
             <div className="history-content">
               <div className="history-image">
-                <img className="img1" src="/stand.jpg" alt="Old Building" />
-                <img className="img2" src="/developer.jpg" alt="developerImg" />
+                <img className="img1" src="/developer.jpg" alt="Old Building" />
+                <img className="img2" src="/stand.jpg" alt="developerImg" />
 
               </div>
               <div className="history-text">
