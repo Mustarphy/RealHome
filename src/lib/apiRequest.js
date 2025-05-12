@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiRequest = axios.create({
-  baseURL: "https://connectapi-rwa1.onrender.com",
+  baseURL: "https://connectapi-rwa1.onrender.com/api",
   withCredentials: true,
 });
 
