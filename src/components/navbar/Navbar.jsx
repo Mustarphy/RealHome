@@ -99,12 +99,17 @@ function Navbar({ tenant }) {
           <Link to="/tenant/profile">Profile</Link>
           {/* <Link to="/tenant/dashboard">Dashboard</Link> */}
           <Link to="/tenant/add-property">Add Property</Link>
+          <Link to="/register" className="register">
+              Sign up
+            </Link>
         </>
       ) : (
         <>
           <Link to="/profile">Profile</Link>
           <Link to="/find">Find Home</Link>
-            <Link to="/add">Post Property</Link>
+          <Link to="/register" className="register">
+              Sign up
+            </Link>
         </>
       )}
     </>
